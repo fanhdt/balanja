@@ -8,6 +8,9 @@
     "build": "npm install --prefix backend && npm install --prefix admin && npm run build --prefix admin",
     "start": "npm run start --prefix backend"
   },
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fanhdt/balanja.git"
