@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema(
     clerkId: {
       type: String,
       unique: true,
-      requirede: true,
+      required: true,
     },
     addresses: [addressSchema],
     wishlist: [
