@@ -131,8 +131,8 @@ export async function removeFromWishlist(req, res) {
 
 export async function getWishlist(req, res) {
   try {
-    const user = req.user;
-    res.status(200).json({ wishlist: req.user.wishlist });
+    const user = await User.findById(req.user._id).populate("wishlist");
+    res.status(200).json({ wishlist: user.wishlist });
   } catch (error) {
     console.error("Error in getWishlist controller:", error);
     res.status(500).json({ error: "Internal server error" });
