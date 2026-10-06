@@ -34,7 +34,7 @@ export async function addAddress(req, res) {
   }
 }
 
-export async function getAddress(req, res) {
+export async function getAddresses(req, res) {
   try {
     const user = req.user;
     res.status(200).json({ addresses: user.addresses });
@@ -83,7 +83,7 @@ export async function deleteAddress(req, res) {
 
     user.addresses.pull(addressId);
     await user.save();
-    res.status(200).json({ message: "Address deleted successfully", addresses: user.addesses });
+    res.status(200).json({ message: "Address deleted successfully", addresses: user.addresses });
   } catch (error) {
     console.error("Error in deleteAddress controller:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -117,7 +117,7 @@ export async function removeFromWishlist(req, res) {
     const user = req.user;
 
     if (user.wishlist.includes(productId)) {
-      return res.status(400).json({ error: "Product is not event in wishlist" });
+      return res.status(400).json({ error: "Product is not found in wishlist" });
     }
 
     user.wishlist.pull(productId);

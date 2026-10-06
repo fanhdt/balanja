@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addAddress, getAddress, updateAddress, deleteAddress, addToWishlist, removeFromWishlist, getWishlist } from "../controllers/user.controller.js";
+import { addAddress, getAddresses, updateAddress, deleteAddress, addToWishlist, removeFromWishlist, getWishlist } from "../controllers/user.controller.js";
 import { protectRoute } from "../middleware/auth.middleware.js";
 
 const router = Router();
@@ -8,7 +8,7 @@ router.use(protectRoute);
 
 // Route address
 router.post("/addresses", addAddress);
-router.get("/addresses", getAddress);
+router.get("/addresses", getAddresses);
 router.put("/addresses/:addressId", updateAddress);
 router.delete("/addresses/:addressId", deleteAddress);
 
