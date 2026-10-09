@@ -1,6 +1,7 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const DashboardPage = () => {
+  useQuery();
   return (
     <div>
       <h1>Hello World</h1>
