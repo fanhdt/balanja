@@ -53,4 +53,6 @@ const startServer = async () => {
   });
 };
 
+console.log("CLIENT URL:", ENV.CLIENT_URL);
+
 startServer();
