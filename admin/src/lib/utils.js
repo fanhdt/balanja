@@ -32,3 +32,18 @@ export const formatDate = (dateString) => {
     year: "numeric",
   });
 };
+
+export const formatRupiah = (value) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(value);
+};
+export const formatRupiahInput = (value) => {
+  if (value === null || value === undefined || value === "") {
+    return "";
+  }
+
+  return new Intl.NumberFormat("id-ID").format(Number(value));
+};

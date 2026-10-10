@@ -19,7 +19,7 @@ const Navbar = () => {
         <PanelLeftIcon className="size-5" />
       </label>
 
-      <div className="flex flex-1 px-4">
+      <div className="flex-1 px-4">
         <h1 className="text-xl font-bold">{NAVIGATION.find((item) => item.path === location.pathname)?.name || "Dashboard"}</h1>
       </div>
 

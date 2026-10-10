@@ -44,7 +44,7 @@ export async function createProduct(req, res) {
 }
 export async function getAllProducts(_, res) {
   try {
-    const products = (await Product.find()).sort({ createdAt: -1 });
+    const products = await Product.find().sort({ createdAt: -1 });
     res.status(200).json(products);
   } catch (error) {
     console.error("Error creating product", error);
@@ -168,3 +168,14 @@ export async function getDashboardStats(_, res) {
     res.status(500).json({ error: "Internal Server error" });
   }
 }
+
+export const deleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Product.findByIdAndDelete(id);
+    res.status(200).json({ message: "Product deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting product : ", error);
+    res.status(500).json({ message: "Failed to delete product" });
+  }
+};
